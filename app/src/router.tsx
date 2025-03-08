@@ -1,44 +1,7 @@
-import { RouteObject, createBrowserRouter } from "react-router-dom";
-import { IconType } from "react-icons";
-import App from "./App";
-import EmailForm from "./components/forms/EmailForm";
-import { JSX } from "react";
+import { createBrowserRouter } from "react-router-dom";
 import NotFoundPage from "./pages/NotFoundPage";
-
-// Tipo de ruta
-export type RouteMenu = {
-  route: RouteObject;
-  label: string;
-  Icon?: IconType;
-};
-
-// Función para generar rutas
-const getRoute = ({
-  path,
-  element,
-  icon,
-  label,
-}: {
-  path: string;
-  label?: string;
-  element?: JSX.Element;
-  icon?: IconType;
-}): RouteMenu => ({
-  label: label || path,
-  Icon: icon,
-  route: {
-    path: `/${path}`,
-    element: element || <p>{label || path}</p>,
-  },
-});
-
-// Lista de rutas
-export const routesApp: RouteMenu[] = [
-  getRoute({ path: "", label: "Home", element: <></> }),
-  getRoute({ path: "home" }),
-  getRoute({ path: "news" }),
-  getRoute({ path: "form-element", element: <EmailForm /> }),
-];
+import routesListApp from "./utils/routes";
+import App from "./App";
 
 // Configuración del router
 const router = createBrowserRouter([
@@ -47,7 +10,7 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <NotFoundPage />,
     children: [
-      ...routesApp.map((r) => r.route),
+      ...routesListApp.map((r) => r.route),
       // { path: "*", element: <NotFoundElement /> },
     ],
   },

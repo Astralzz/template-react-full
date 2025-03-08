@@ -24,6 +24,7 @@ Esta plantilla está optimizada para el desarrollo de aplicaciones en **React**,
 - **Vite**: bundler para un desarrollo más rápido.  
 - **Formik**: gestión de formularios y validaciones.  
 - **Yup**: validación de esquemas en tiempo de ejecución.  
+- **Axios**: Realizar consulta `XMLHttpRequests`, `HTTPS`, etc.
 
 ### ⚙️ Configuraciones Realizadas  
 
@@ -33,7 +34,9 @@ Esta plantilla está optimizada para el desarrollo de aplicaciones en **React**,
 - **Tailwind CSS 4.0**: configurado en **src/main.css**.  
 - **Tema**: gestión de tema en **src/redux/slices/themeSlice.ts**, integrado con Redux.  
 - **Formik & Yup**: formulario con validaciones listo para usar.  
-- **Página 404**: ya implementada y funcional.  
+- **Página 404**: ya implementada y funcional.
+- **Modal**: implementado y listo para usar en **src/components/modals/ModalDefault.tsx**
+- **Api & Request** Se creo un ejemplo del uso de una api en react `19` en **src/pages/ApiPage.tsx**
 
 ### 📖 Tutoriales  
 
@@ -267,6 +270,63 @@ const NotFoundPage: React.FC = () => {
       </div>
     </main>
   );
+};
+```
+
+### **Example Api Page**
+
+Pagina de ejemplo del uso de una api usando react 19 y axios
+
+```tsx
+// Component ...
+const ApiPage: React.FC = () => {
+  // Estados para manejar la data y el estado de error
+  const [data, setData] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
+
+  // Función para manejar la petición
+  const handleSubmit = () => {
+    // Reseteamos los estados
+    setError(null);
+
+    // Inicio
+    startTransition(async () => {
+      try {
+        // Petición a la API
+        const response = await getDataRequest();
+
+        // * Success
+        setData(JSON.stringify(response, null, 2));
+
+        // ! Error
+      } catch (err: unknown) {
+        setError(
+          err instanceof Error ? err?.message : "Ocurrió un error desconocido"
+        );
+      }
+    });
+  };
+
+  return <div></div>;
+};
+```
+
+```tsx
+// Request ...
+export const getDataRequest = async (): Promise<unknown> => {
+  try {
+    // Realizar la petición GET
+    const response = await axios.get<any>("");
+
+    // Verificar si los datos son válidos
+    checkDataRequest(response);
+
+    // Retornar los datos obtenidos
+    return response.data;
+  } catch (error) {
+    return await catchAxiosError(error);
+  }
 };
 ```
 

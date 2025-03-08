@@ -1,8 +1,47 @@
 {
-  "name": "app",
-  "private": true,
-  "version": "0.0.0",
+  "name": "app-template-react",
+  "private": false,
+  "version": "1.0.1",
   "type": "module",
+  "author": {
+    "name": "Edain Jesús Cortez Cerón",
+    "email": "edain.cortez@outlook.com",
+    "url": "https://github.com/Astralzz"
+  },
+  "description": "Plantilla optimizada y lista para el desarrollo de aplicaciones en React.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Astralzz/template-react-full.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "tsx",
+    "web",
+    "react",
+    "react-app",
+    "fullstack",
+    "typescript",
+    "tailwindcss",
+    "template",
+    "frontend",
+    "laravel",
+    "tailwindcss",
+    "javascript",
+    "css",
+    "html",
+    "scss",
+    "sass",
+    "vite",
+    "redux",
+    "formik",
+    "yup",
+    "react-router-dom",
+    "react-icons",
+    "react-redux",
+    "react-toolkit",
+    "axios",
+    "astralz"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -12,6 +51,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.0",
     "@tailwindcss/vite": "^4.0.8",
+    "axios": "^1.8.2",
     "formik": "^2.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

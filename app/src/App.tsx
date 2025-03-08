@@ -30,7 +30,7 @@ const App: React.FC = () => {
       <div className="bg-primary-100 dark:bg-primary-500 text-gray-900 dark:text-gray-100 w-full flex flex-col items-center text-center justify-center min-h-screen">
         {/* Encabezado */}
         <div className="flex items-center mb-4">
-          <h1 className="text-3xl font-bold">Plantilla React - Astralz</h1>
+          <h1 className="text-3xl font-bold">Template React - Astralz</h1>
         </div>
 
         {/* Botón de cambio de tema */}
